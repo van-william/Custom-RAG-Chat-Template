@@ -162,3 +162,9 @@ All agent implementations use the AI SDK’s primitives:
 1. **RBAC gating**: Only admin can reach admin routes.
 2. **HITL gating**: AI SDK tool approval flows.
 3. **Durable change requests**: DB-level pending mutation objects.
+
+### Operational conventions
+
+> [!NOTE]  
+> **Proxy Naming**: In Next.js 16+, the `middleware.ts` file convention is **deprecated** and renamed to `proxy.ts`.  
+> This project uses Next.js 16+, so we use `proxy.ts` for authentication and edge routing rules. Do not rename it back to `middleware.ts`.

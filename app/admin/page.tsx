@@ -229,7 +229,7 @@ export default async function AdminPage() {
                 </Link>
 
                 {/* Insights Card */}
-                <Link href="/admin/insights" className="group rounded-2xl bg-white border border-neutral-200 p-6 shadow-sm hover:shadow-md hover:border-cyan-200 transition-all">
+                <Link href="/admin/analytics" className="group rounded-2xl bg-white border border-neutral-200 p-6 shadow-sm hover:shadow-md hover:border-cyan-200 transition-all">
                     <div className="flex justify-between items-start mb-4">
                         <div className="w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center text-cyan-600 group-hover:scale-110 transition-transform">
                             <BarChart3 size={24} />
@@ -265,26 +265,6 @@ export default async function AdminPage() {
                     <p className="text-xs text-neutral-400 mb-4">Learn how to manage data, prompts, and users effectively.</p>
                     <div className="flex items-center text-blue-600 font-medium text-sm group-hover:translate-x-1 transition-transform">
                         Read Guide <ArrowRight size={16} className="ml-1" />
-                    </div>
-                </Link>
-
-                {/* Feature Requests */}
-                <Link href="/admin/requests" className="group rounded-2xl bg-white border border-neutral-200 p-6 shadow-sm hover:shadow-md hover:border-red-200 transition-all">
-                    <div className="flex justify-between items-start mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-600 group-hover:scale-110 transition-transform">
-                            <Bug size={24} />
-                        </div>
-                        <span className="bg-red-50 text-red-700 text-xs font-semibold px-2 py-1 rounded-full">
-                            Feedback
-                        </span>
-                    </div>
-                    <h2 className="text-xl font-bold text-neutral-900 mb-2">Feature Requests</h2>
-                    <p className="text-neutral-500 mb-2">
-                        Log feature ideas and report bugs.
-                    </p>
-                    <p className="text-xs text-neutral-400 mb-4">Track development requests and known issues.</p>
-                    <div className="flex items-center text-red-600 font-medium text-sm group-hover:translate-x-1 transition-transform">
-                        Submit Request <ArrowRight size={16} className="ml-1" />
                     </div>
                 </Link>
             </div>
