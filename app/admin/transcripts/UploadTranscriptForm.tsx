@@ -38,7 +38,7 @@ export function UploadTranscriptForm() {
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    placeholder="e.g., Client Call - Lincoln Park Tour"
+                    placeholder="e.g., Client Call - Product Review"
                     className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     disabled={isLoading}
                 />

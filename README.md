@@ -25,9 +25,57 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Configuration & Seeding
+
+### 1. Database Schema
+The template uses a generic "List A" and "List B" structure to organize your knowledge base:
+- **List A**: Categories, Groups, or Parent Entities (e.g., Neighborhoods, Departments, Topics).
+- **List B**: Items, Products, or Child Entities (e.g., Listings, Articles, Employees).
+
+You can rename these concepts in the UI source code (`app/admin/lists/page.tsx`) to match your domain.
+
+### 2. Seeding Data
+The `supabase/seed.sql` file contains:
+- Default system prompts for the AI agents.
+- **Sample Data**: An example "Category" and "Item" to demonstrate the structure.
+
+To reset and seed your database:
+```bash
+npx supabase db reset
+```
+
+### 3. Environment Variables
+Copy `.env.local.example` to `.env.local` and fill in your keys:
+- **Supabase**: URL and Anon Key.
+- **Clerk**: Publishable and Secret Keys.
+- **Google Generative AI**: API Key for embeddings and chat.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Making it Your Own 🛠️
+
+Here is a quick checklist to turn this template into your app:
+
+1.  **Domain Modeling**:
+    -   Decide what your `List A` (Categories) and `List B` (Items) are.
+    -   Update the UI labels in `app/admin/lists/page.tsx`.
+    -   (Optional) If you don't need lists, you can rely solely on global documents.
+
+2.  **Branding**:
+    -   Update the Landing Page: `app/page.tsx`.
+    -   Update the Navbar/Footer: `app/layout.tsx` (or components within `page.tsx`).
+    -   Update Metadata: `app/layout.tsx` (title, description).
+
+3.  **AI Personality**:
+    -   Go to `/admin/prompts` and edit the `user_chat_system` prompt.
+    -   Give your agent a name and specific instructions about its role.
+
+4.  **Knowledge Base**:
+    -   Clear the sample data (`npx supabase db reset`).
+    -   Use the **Transcript Ingestion** (`/admin/transcripts`) to upload raw data (FAQs, interviews, docs).
+    -   The system will extract facts and you can approve them into your knowledge base.
 
 ## Learn More
 

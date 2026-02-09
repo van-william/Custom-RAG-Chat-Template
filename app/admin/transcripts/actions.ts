@@ -215,8 +215,8 @@ export async function publishApprovedFacts(transcriptId: string): Promise<{ coun
     const { userId } = await auth();
 
     // Pre-fetch entities for auto-resolution
-    const { data: neighborhoods } = await supabase.from('neighborhoods').select('id, name');
-    const { data: listings } = await supabase.from('listings').select('id, title, mls_id');
+    const { data: listAItems } = await supabase.from('list_a').select('id, name');
+    const { data: listBItems } = await supabase.from('list_b').select('id, title');
 
     // DEBUG: Get stats
     const { data: allFacts } = await supabase
@@ -245,13 +245,13 @@ export async function publishApprovedFacts(transcriptId: string): Promise<{ coun
     const resolveEntity = (fact: any) => {
         const text = ((fact.title || '') + ' ' + (fact.content || '')).toLowerCase();
 
-        if (fact.suggested_scope === 'neighborhood') {
-            const match = neighborhoods?.find(n => text.includes(n.name.toLowerCase()));
-            return match ? { neighborhood_id: match.id, scope_type: 'neighborhood' } : null;
+        if (fact.suggested_scope === 'list_a') {
+            const match = listAItems?.find(i => text.includes(i.name.toLowerCase()));
+            return match ? { list_a_id: match.id, scope_type: 'list_a' } : null;
         }
-        if (fact.suggested_scope === 'listing') {
-            const match = listings?.find(l => text.includes(l.title.toLowerCase()) || (l.mls_id && text.includes(l.mls_id.toLowerCase())));
-            return match ? { listing_id: match.id, scope_type: 'listing' } : null;
+        if (fact.suggested_scope === 'list_b') {
+            const match = listBItems?.find(i => text.includes(i.title.toLowerCase()));
+            return match ? { list_b_id: match.id, scope_type: 'list_b' } : null;
         }
         return null;
     };
@@ -269,8 +269,8 @@ export async function publishApprovedFacts(transcriptId: string): Promise<{ coun
             const resolved = resolveEntity(fact);
             if (resolved) {
                 scopeType = resolved.scope_type;
-                if (resolved.neighborhood_id) entityIds = { neighborhood_id: resolved.neighborhood_id };
-                if (resolved.listing_id) entityIds = { listing_id: resolved.listing_id };
+                if (resolved.list_a_id) entityIds = { list_a_id: resolved.list_a_id };
+                if (resolved.list_b_id) entityIds = { list_b_id: resolved.list_b_id };
             } else {
                 // Resolution failed: Fallback to global
                 console.warn(`[Publish] Could not resolve entity for fact ${fact.id}. Defaulting to global.`);

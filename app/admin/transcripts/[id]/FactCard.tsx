@@ -8,9 +8,9 @@ import { Check, X, MessageSquare, Lightbulb, Home, MapPin, User, Pencil, Save } 
 const factTypeConfig = {
     qa: { icon: MessageSquare, label: 'Q&A', color: 'text-blue-600', bg: 'bg-blue-50' },
     fact: { icon: Lightbulb, label: 'Fact', color: 'text-amber-600', bg: 'bg-amber-50' },
-    property_detail: { icon: Home, label: 'Property', color: 'text-green-600', bg: 'bg-green-50' },
-    neighborhood_info: { icon: MapPin, label: 'Neighborhood', color: 'text-purple-600', bg: 'bg-purple-50' },
-    personal_insight: { icon: User, label: 'Personal', color: 'text-indigo-600', bg: 'bg-indigo-50' },
+    entity_detail: { icon: Home, label: 'Entity Detail', color: 'text-green-600', bg: 'bg-green-50' },
+    category_info: { icon: MapPin, label: 'Category Info', color: 'text-purple-600', bg: 'bg-purple-50' },
+    insight: { icon: User, label: 'Insight', color: 'text-indigo-600', bg: 'bg-indigo-50' },
 };
 
 interface FactCardProps {
@@ -65,8 +65,8 @@ export function FactCard({ fact }: FactCardProps) {
 
     return (
         <div className={`bg-white border rounded-xl p-4 ${fact.is_approved ? 'border-green-300 bg-green-50/30' :
-                fact.is_rejected ? 'border-neutral-200 opacity-50' :
-                    'border-neutral-200'
+            fact.is_rejected ? 'border-neutral-200 opacity-50' :
+                'border-neutral-200'
             }`}>
             <div className="flex items-start gap-3">
                 <div className={`p-2 rounded-lg ${config.bg}`}>
@@ -103,8 +103,8 @@ export function FactCard({ fact }: FactCardProps) {
                                     className="px-3 py-1.5 text-sm border border-neutral-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 >
                                     <option value="global">Global</option>
-                                    <option value="neighborhood">Neighborhood</option>
-                                    <option value="listing">Listing</option>
+                                    <option value="list_a">List A (Category)</option>
+                                    <option value="list_b">List B (Item)</option>
                                 </select>
                             </div>
                             <div className="flex gap-2">

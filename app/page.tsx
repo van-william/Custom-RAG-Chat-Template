@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { ArrowRight, MessageSquare, Shield, Database } from 'lucide-react';
 
+/**
+ * 🛠️ Developer Note:
+ * This is the main landing page of the application.
+ * You should update the branding, copy, and features below to match your specific use case.
+ * The navigation bar and footer are also defined in this file.
+ */
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-neutral-900 text-white selection:bg-indigo-500/30">

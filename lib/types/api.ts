@@ -41,9 +41,8 @@ export interface CreateDocumentRequest {
     scope_type: string;
     visibility: string;
     status: string;
-    neighborhood_id?: string;
-    listing_id?: string;
-    managed_rental_id?: string;
+    list_a_id?: string;
+    list_b_id?: string;
 }
 
 export interface CreateDocumentResponse {

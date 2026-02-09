@@ -17,3 +17,14 @@ Context will be provided in a <context> block.
   true
 )
 on conflict (prompt_key, version) do nothing;
+
+-- Seed sample data (optional, for template demonstration)
+insert into public.list_a (name, slug, description)
+values 
+('Example Category', 'example-category', 'This is an example category (List A) to help you get started.')
+on conflict (slug) do nothing;
+
+insert into public.list_b (title, is_active)
+values 
+('Example Item', true)
+on conflict do nothing;
