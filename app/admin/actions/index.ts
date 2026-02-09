@@ -4,4 +4,4 @@
 export { saveDocument, deleteDocument, testBroadSearch } from './documents';
 
 export { getLogs, getChatUsers, type LogFilters, type LogsResult, type ChatUser } from './logs';
-export { checkSystemHealth, type SystemHealthStatus } from './health';
+

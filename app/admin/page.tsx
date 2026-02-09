@@ -2,7 +2,7 @@ import { createServerSupabaseClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Bot, Database, ArrowRight, Activity, Users, Clock, MessageSquare, FileText, BarChart3, UserCheck, UserPlus, TrendingUp, BookOpen, Bug } from 'lucide-react';
 import { clerkClient } from '@clerk/nextjs/server';
-import SystemHealthList from './SystemHealthList';
+
 
 // Helper function to format relative time
 function formatRelativeTime(date: Date | null): string {
@@ -92,18 +92,7 @@ export default async function AdminPage() {
                 </ul>
             </div>
 
-            {/* Template Developer Tips */}
-            <div className="bg-gradient-to-r from-violet-100 to-indigo-100 border border-indigo-200 rounded-xl p-5 mb-8">
-                <h3 className="flex items-center gap-2 font-bold text-indigo-900 mb-2">
-                    <span className="text-xl">🚀</span> Getting Started with the Template
-                </h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-indigo-800">
-                    <li><strong>Define your Data:</strong> Go to <Link href="/admin/lists" className="underline hover:text-indigo-900">Manage Lists</Link> to rename "List A" and "List B" to your domain's needs.</li>
-                    <li><strong>Add Knowledge:</strong> Upload transcripts or manually create documents in <Link href="/admin/embeddings" className="underline hover:text-indigo-900">Knowledge Base</Link>.</li>
-                    <li><strong>Customize AI:</strong> Edit the <Link href="/admin/prompts" className="underline hover:text-indigo-900">System Prompts</Link> to change the agent's personality.</li>
-                    <li><strong>Branding:</strong> Update the landing page in <code className="bg-white/50 px-1 rounded">app/page.tsx</code>.</li>
-                </ul>
-            </div>
+
 
             {/* RAG & Auth Status Note */}
             <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-8 flex items-start gap-3">
@@ -269,23 +258,7 @@ export default async function AdminPage() {
                 </Link>
             </div>
 
-            {/* System Health */}
-            <div className="bg-indigo-900 rounded-2xl p-8 text-white relative overflow-hidden mb-6">
-                <div className="absolute top-0 right-0 p-32 bg-indigo-500/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-                <div className="relative z-10">
-                    <div className="flex items-center gap-4 mb-6">
-                        <Activity className="text-indigo-300" />
-                        <div>
-                            <h3 className="font-semibold text-lg">System Status</h3>
-                            <p className="text-indigo-200 text-sm mt-1">
-                                Real-time operational status.
-                            </p>
-                        </div>
-                    </div>
 
-                    <SystemHealthList />
-                </div>
-            </div>
 
             {/* User Activity Table */}
             <div className="bg-white border border-neutral-200 rounded-2xl shadow-sm overflow-hidden">

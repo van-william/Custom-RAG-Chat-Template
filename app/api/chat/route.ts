@@ -1,6 +1,7 @@
 import { streamText, convertToModelMessages, type UIMessage, type TextPart } from 'ai';
 import { chatModel } from '@/lib/ai/config';
 import { embedTextWithGoogle } from '@/lib/ai/embedding';
+import { DEFAULT_USER_CHAT_PROMPT } from '@/lib/ai/defaults';
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { auth } from '@clerk/nextjs/server';
 import { getSystemPrompt } from '@/lib/prompts';

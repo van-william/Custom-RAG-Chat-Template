@@ -58,6 +58,8 @@ Every knowledge document and its chunks are categorized into exactly one scope:
 - **list_b**: info specific to an item in List B (e.g., Listings, Products, Entities)
 - **user**: user-scoped info (private notes or preferences)
 
+> **Note on Renaming**: The database tables are named `list_a` and `list_b` for maximum flexibility. You should rename the **UI labels** (e.g., in the Admin Dashboard) to match your domain, but keep the underlying table names consistent to ensure the retrieval logic (`match_kb_chunks`) works out of the box.
+
 ### Minimum schema elements referenced by agents
 
 The exact schema may vary, but agents assume these core concepts exist in Supabase Postgres:

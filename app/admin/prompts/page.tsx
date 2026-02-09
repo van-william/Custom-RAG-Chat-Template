@@ -84,15 +84,7 @@ export default function PromptsPage() {
                     saving={saving}
                     saveStatus={saveStatus}
                 />
-                <PromptCard
-                    title="Admin Chat Prompt"
-                    description="This is the system prompt for /admin/chat. It defines how the Admin Agent behaves and what tools it can use."
-                    promptKey="admin_chat"
-                    prompt={prompts.find(p => p.prompt_key === 'admin_chat')}
-                    onSave={handleSave}
-                    saving={saving}
-                    saveStatus={saveStatus}
-                />
+
                 <PromptCard
                     title="Transcript Extraction Prompt"
                     description="Instructions for the AI that converts raw transcripts into structured facts. This controls how facts are identified, titled, and scoped."

@@ -100,7 +100,7 @@ create index if not exists kb_documents_scope_idx
 -- Prompt versioning
 create table if not exists public.prompt_versions (
   id uuid primary key default gen_random_uuid(),
-  prompt_key text not null,      -- e.g., 'user_chat_system'
+  prompt_key text not null,      -- e.g., 'user_chat'
   version int not null,
   content text not null,
   author_clerk_user_id text not null, -- 'system' or admin ID

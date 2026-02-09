@@ -69,13 +69,27 @@ Here is a quick checklist to turn this template into your app:
     -   Update Metadata: `app/layout.tsx` (title, description).
 
 3.  **AI Personality**:
-    -   Go to `/admin/prompts` and edit the `user_chat_system` prompt.
+    -   Go to `/admin/prompts` and edit the `user_chat` prompt.
     -   Give your agent a name and specific instructions about its role.
 
 4.  **Knowledge Base**:
     -   Clear the sample data (`npx supabase db reset`).
     -   Use the **Transcript Ingestion** (`/admin/transcripts`) to upload raw data (FAQs, interviews, docs).
     -   The system will extract facts and you can approve them into your knowledge base.
+
+## Admin Access & Security 🔐
+
+### Option A: Proper Admin Setup (Recommended for Prod)
+To access the `/admin` routes in production, your Clerk user must have the `admin` role.
+1.  Go to your Clerk Dashboard > Users.
+2.  Select your user.
+3.  Scroll to **Metadata** -> **Public Metadata**.
+4.  Add `{"role": "admin"}` and save.
+
+### Option B: Developer Bypass (Local Only)
+For local development, you can bypass the role check:
+1.  Set `ADMIN_ACCESS_BYPASS=true` in your `.env.local` file.
+2.  You must still be signed in, but any user account will work.
 
 ## Learn More
 

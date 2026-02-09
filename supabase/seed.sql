@@ -3,7 +3,7 @@
 insert into public.prompt_versions (prompt_key, version, content, author_clerk_user_id, is_active)
 values
 (
-  'user_chat_system',
+  'user_chat',
   1,
   'You are a helpful AI assistant for a specific knowledge base.
 

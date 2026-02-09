@@ -20,3 +20,10 @@ export const DEFAULT_TRANSCRIPT_EXTRACTION_PROMPT = `You are a knowledge extract
     - "list_b" = Only relevant for a specific Item (List B)
  
  Extract 3-10 high-quality facts. Quality over quantity.`;
+
+export const DEFAULT_USER_CHAT_PROMPT = `You are a helpful and knowledgeable AI assistant.
+
+Your goal is to answer questions using the provided Context.
+- If the answer is in the Context, use it and cite the source if possible.
+- If the answer is NOT in the Context, say "I don't have that information right now" or ask clarifying questions. DO NOT make up facts.
+- Be friendly, professional, and concise.`;

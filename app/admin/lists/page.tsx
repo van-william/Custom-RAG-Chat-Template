@@ -21,17 +21,43 @@ export default async function ListsPage() {
             <div className="max-w-6xl mx-auto space-y-8">
                 <div>
                     <h1 className="text-2xl font-bold text-neutral-900">Manage Lists</h1>
-                    Configure your two primary lists here.
-                </p>
-
-                {/* Developer Note - Safe to remove after customization */}
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
-                    <p className="font-semibold mb-1">🛠️ Developer Note:</p>
-                    <p>
-                        "List A" and "List B" are generic placeholders. You should rename them in the UI to match your domain (e.g., "Neighborhoods" & "Properties", or "Topics" & "Articles").
-                        <br />
-                        To rename them in the codebase, search for <code className="bg-blue-100 px-1 rounded">List A</code> and <code className="bg-blue-100 px-1 rounded">List B</code> in this file (`app/admin/lists/page.tsx`).
+                    <p className="text-neutral-500">
+                        Configure your two primary lists here.
                     </p>
+                </div>
+
+                {/* Scoping Explanation */}
+                <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-5">
+                        <h3 className="font-semibold text-indigo-900 mb-2 flex items-center gap-2">
+                            <Layers size={18} /> What are these lists for?
+                        </h3>
+                        <p className="text-sm text-indigo-800 mb-2">
+                            These lists define the <strong>Scopes</strong> for your Knowledge Base. When you add a document
+                            (like a transcript or fact), you can tag it as belonging to a specific item in List A or List B.
+                        </p>
+                        <p className="text-sm text-indigo-800">
+                            <strong>Example:</strong> If List A is "Neighborhoods", you can upload a document and scope it
+                            to "Downtown". The AI will prioritize that document when users ask about Downtown.
+                        </p>
+                    </div>
+
+                    <div className="bg-blue-50 border border-blue-100 rounded-lg p-5">
+                        <h3 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
+                            <List size={18} /> Developer Guide: Renaming
+                        </h3>
+                        <div className="text-sm text-blue-800 space-y-2">
+                            <p>
+                                <strong>UI Labels:</strong> You can strictly rename the labels in this file
+                                (`app/admin/lists/page.tsx`) to match your domain (e.g., change "List A" to "Categories").
+                            </p>
+                            <p>
+                                <strong>Database:</strong> The underlying SQL tables are named <code>list_a</code> and <code>list_b</code>.
+                                It is highly recommended to <strong>keep these table names as-is</strong> to maintain compatibility with the template's
+                                retrieval logic (`match_kb_chunks`), but you can treat them as whatever you like in your application code.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -125,6 +151,5 @@ export default async function ListsPage() {
                 </div>
             </div>
         </div>
-        </div >
     );
 }
